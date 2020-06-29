@@ -1,5 +1,5 @@
 //Last Updated 6-29-2020
-//             5:22pm
+//             6:03pm
 package Project_2;
 import java.util.Stack;
 import java.util.Scanner;
@@ -59,6 +59,7 @@ public class finalProject {
 		}
 		
 		int precedence(char i){
+			//order of operations PEMDAS Exponents = 3, multiplication division 2, etc.
 			switch(i){
 				case'+':
 				case'-':
