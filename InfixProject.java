@@ -1,5 +1,6 @@
-//Last Updated 6/29/2020
+//Last Updated 6-29-2020
 //             5:22pm
+package Project_2;
 import java.util.Stack;
 import java.util.Scanner;
 public class finalProject {
@@ -48,15 +49,14 @@ public class finalProject {
 				}
 				operators.push(a);
 			}
-			while(!operators.isEmpty()){
-				int output = performOperation(nums, operators);
-				//puts it back on the stack
-				nums.push(output);
-			}
-			
 		}
-		return nums.pop();
-	}
+		while(!operators.isEmpty()){
+			int output = performOperation(nums, operators);
+			//puts it back on the stack
+			nums.push(output);
+			}
+			return nums.pop();
+		}
 		
 		int precedence(char i){
 			switch(i){
@@ -71,29 +71,37 @@ public class finalProject {
 			}
 			return -1;
 		}
-	    public boolean isOperator(char c){
-	        return (c=='+'||c=='-'||c=='/'||c=='*'||c=='^');
-	    }
 
-		public int performOperation(Stack<Integer> num, Stack<Character> operators) {
-			int a = num.pop();
-			int b = num.pop();
+
+		public int performOperation(Stack<Integer> nums, Stack<Character> operators) {
+			int a = nums.pop();
+			int b = nums.pop();
 			char operation = operators.pop();
 			switch (operation) {
-			case '+':
-				return a + b;
-			case '-':
-				return b - a;
-			case '*':
-				return a * b;
-			case '/':
-				if (a == 0)
-					throw new
-							UnsupportedOperationException("You can not divide by zero my friend");
-				return b / a;
+				case '+':
+					return a + b;
+				case '-':
+					return b - a;
+				case '*':
+					return a * b;
+				case '/':
+					if (a == 0)
+						throw new
+								UnsupportedOperationException("You can not divide by zero my friend");
+					return b / a;
 			}
 			return 0;
 		}
+	    public boolean isOperator(char c){
+	        return (c=='+'||c=='-'||c=='/'||c=='*'||c=='^');
+	    }
+		public static void main(String[] args) {
+			finalProject i = new finalProject();
+			Scanner scnr = new Scanner(System.in);
+			System.out.println("What would you like to be solved bro? ");
+			String problem = scnr.nextLine();
+			System.out.println(i.solve(problem));
+			
+		}
 
 }
-
