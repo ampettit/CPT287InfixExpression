@@ -1,5 +1,5 @@
 //Last Updated 6-29-2020
-//             6:53 pm
+//             6:53 PM
 package Project_2;
 import java.util.Stack;
 import java.util.Scanner;
