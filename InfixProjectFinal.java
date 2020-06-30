@@ -1,5 +1,5 @@
 //Last Updated 6-29-2020
-//             6:53 PM
+//             7:24 PM
 package Project_2;
 import java.util.Stack;
 import java.util.Scanner;
@@ -59,18 +59,20 @@ public class finalProject {
 		}
 	
 		int precedence(char i) {
+			// this is a comment.  lol jk
 			switch(i){
-			case'>':
-			case'<':
-			case'=':
+			case '>':
+			case '<':
+			case '=':
 				return 1;
-			case'+':
-			case'-':
+			case '+':
+			case '-':
 				return 2;
-			case'*':
-			case'/':
+			case '*':
+			case '/':
+			case '%':
 				return 3;
-			case'^':
+			case '^':
 				return 4;
 		}
 			return -1;
@@ -94,15 +96,18 @@ public class finalProject {
 				case '*':
 					return Integer.toString(a * b);
 				case '/':
-					if (a == 0)
-						throw new
-								UnsupportedOperationException("You can not divide by zero my friend");
+					if (a == 0) { return ("You can not divide by zero my friend"); }
 					return Integer.toString(b / a);
+				case '%':
+					return Integer.toString(b % a);
+				case '^':
+					return Integer.toString((int) Math.pow(b, a));
+					
 			}
 			return Integer.toString(0);
 		}
 	    public boolean isOperator(char c){
-	        return (c == '+'||c == '-'||c == '/'||c == '*'||c == '^' || c == '>' || c == '<' || c == '=');
+	        return (c == '+'||c == '-'||c == '/'||c == '*'||c == '^' || c == '>' || c == '<' || c == '=' || c == '%');
 	    }
 	    
 		public static void main(String[] args) {
