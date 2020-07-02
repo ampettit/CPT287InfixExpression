@@ -109,13 +109,8 @@ public class finalProject {
 	    public boolean isOperator(char c){
 	        return (c == '+'||c == '-'||c == '/'||c == '*'||c == '^' || c == '>' || c == '<' || c == '=' || c == '%');
 	    }
-	    
-		public static void main(String[] args) {
-			finalProject i = new finalProject();
-			Scanner scnr = new Scanner(System.in);
-			System.out.println("What would you like to be solved bro? ");
-			String problem = scnr.nextLine();
-			for(int x = 0; x < problem.length(); x ++){
+	    public static String replaceOps(String problem){
+	    	for(int x = 0; x < problem.length(); x ++){
 				if(problem.charAt(x) == '<'){
 					if(problem.charAt(x + 1) == '='){
 						problem = problem.substring(0,x) + problem.substring(x + 1);
@@ -125,7 +120,7 @@ public class finalProject {
 				if(problem.charAt(x) == '>'){
 					if(problem.charAt(x + 1) == '='){
 						problem = problem.substring(0,x) + problem.substring(x + 1);
-						problem = problem.replace('=', '#');
+						problem = problem.replace('=', '@');
 					}
 				}
 				if(problem.charAt(x) == '!'){
@@ -134,6 +129,15 @@ public class finalProject {
 					}
 				}
 			}
+	    	return problem;
+	    }
+	    
+		public static void main(String[] args) {
+			finalProject i = new finalProject();
+			Scanner scnr = new Scanner(System.in);
+			System.out.println("What would you like to be solved bro? ");
+			String problem = scnr.nextLine();
+			problem = replaceOps(problem);
 			System.out.println(problem);
 			System.out.println(i.solve(problem));
 		}
