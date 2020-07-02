@@ -122,6 +122,17 @@ public class finalProject {
 						
 					}
 				}
+				if(problem.charAt(x) == '>'){
+					if(problem.charAt(x + 1) == '='){
+						problem = problem.substring(0,x) + problem.substring(x + 1);
+						problem = problem.replace('=', '#');
+					}
+				}
+				if(problem.charAt(x) == '!'){
+					if(problem.charAt(x + 1) == '='){
+						problem = problem.substring(0,x) + problem.substring(x + 1);
+					}
+				}
 			}
 			System.out.println(problem);
 			System.out.println(i.solve(problem));
