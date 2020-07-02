@@ -113,19 +113,18 @@ public class finalProject {
 	    	for(int x = 0; x < problem.length(); x ++){
 				if(problem.charAt(x) == '<'){
 					if(problem.charAt(x + 1) == '='){
-						problem = problem.substring(0,x) + problem.substring(x + 1);
+						problem = problem.replace("<=", "@");
 						
 					}
 				}
 				if(problem.charAt(x) == '>'){
 					if(problem.charAt(x + 1) == '='){
-						problem = problem.substring(0,x) + problem.substring(x + 1);
-						problem = problem.replace('=', '@');
+						problem = problem.replace(">=", "~");
 					}
 				}
 				if(problem.charAt(x) == '!'){
 					if(problem.charAt(x + 1) == '='){
-						problem = problem.substring(0,x) + problem.substring(x + 1);
+						problem = problem.replace("!=", "!");
 					}
 				}
 			}
